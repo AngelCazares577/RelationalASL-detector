@@ -68,7 +68,7 @@ def data_extraction(results):
 
 sequence = []
 
-signs = np. array(['hello', "I", "Angel"])
+signs = np. array(['hello', "I", "Angel","A","J","Z"])
 
 cap = cv.VideoCapture(0)
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:

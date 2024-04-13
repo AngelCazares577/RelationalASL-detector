@@ -64,13 +64,13 @@ def data_extraction(results):
 
 dataPath = os.path.join("extraction.data")
 
-signs = np. array(['hello', "I", "Angel"])
+signs = np. array(['hello', "I", "Angel","A","J","Z"])
 
 #number of frames used to detect action 
-sequenceNum = 30
+sequenceNum = 25
 
 # "video" lengths 
-sequenceLength = 30
+sequenceLength = 25
 
 for sign in signs:
     for sequence in range(sequenceNum):
@@ -92,7 +92,6 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
                 
                 #Make detections 
                 image, results = MP_detection(frame, holistic)
-                print(results.pose_landmarks)
 
                 draw_landmarks(image,results)
 
@@ -101,13 +100,13 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
                     cv.putText(image, 'DataBase Collection Starting...', (120,200), 
                                cv.FONT_HERSHEY_SIMPLEX, 1, (0,255, 0), 4, cv.LINE_AA)
                     cv.putText(image, 'SIGN: {} Video Number {}'.format(sign, sequence), (15,12), 
-                               cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv.LINE_AA)
+                               cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,0, 0), 2, cv.LINE_AA)
                     # Show to screen
                     cv.imshow('CV Stream', image)
-                    cv.waitKey(1500)
+                    cv.waitKey(1000)
                 else: 
                     cv.putText(image, 'SIGN: {} Video Number {}'.format(sign, sequence), (15,12), 
-                               cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv.LINE_AA)
+                               cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2, cv.LINE_AA)
                     # Show to screen
                     cv.imshow('Stream', image) 
                 

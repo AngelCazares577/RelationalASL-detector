@@ -18,13 +18,13 @@ from sklearn.metrics import multilabel_confusion_matrix, accuracy_score
 
 dataPath = os.path.join("extraction.data")
 
-signs = np. array(['hello', "I", "Angel"])
+signs = np. array(['hello', "I", "Angel","A","J","Z"])
 
 #number of frames used to detect action 
-sequenceNum = 30
+sequenceNum = 25
 
 # "video" lengths 
-sequenceLength = 30
+sequenceLength = 25
 
 for sign in signs:
     for sequence in range(sequenceNum):
@@ -80,7 +80,7 @@ model.add(Dense(signs.shape[0], activation = 'softmax')) #FoftMax returns an arr
 
 model.compile(optimizer = "adam", loss = 'categorical_crossentropy', metrics = ['categorical_accuracy'])
 
-model.fit(x_train,y_train, epochs = 1300, callbacks = [tb_callback])
+model.fit(x_train,y_train, epochs = 700, callbacks = [tb_callback])
 
 model.save('meshModel.h5')
 
